@@ -82,7 +82,7 @@ ul.plain{margin:0;padding-left:20px;line-height:1.75;color:#CBD7E1}
 .price .num{font-size:clamp(34px,4.4vw,54px);display:block;margin:10px 0 12px}
 .badge{display:inline-block;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#07140D;background:var(--accent);border-radius:999px;padding:5px 12px;font-weight:700}
 /* compare */
-.cmp{display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1fr) minmax(0,1.2fr);gap:0 clamp(16px,3vw,40px)}
+.cmp{display:grid;grid-template-columns:minmax(0,.6fr) minmax(0,.9fr) minmax(0,.9fr) minmax(0,1.2fr);gap:0 clamp(16px,3vw,40px)}
 .cmp>div{padding:20px 0;border-top:1px solid var(--line)}
 .cmp .h{border-top:0;padding-top:0}
 .cmp .k{color:var(--muted);font-size:15px;padding-top:23px}
@@ -90,7 +90,7 @@ ul.plain{margin:0;padding-left:20px;line-height:1.75;color:#CBD7E1}
 .cmp .adv{color:var(--fg);font-size:clamp(16px,1.6vw,19px)}
 .cmp .main{color:var(--accent)}
 .cmp small{display:block;font-size:11px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
-@media (max-width:860px){.cmp{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.cmp .k{grid-column:1/-1;padding-bottom:0;border-top:1px solid var(--line)}.cmp .k~.pro,.cmp .k~.adv{border-top:0}.cmp .h.k{display:none}}
+@media (max-width:860px){.cmp{grid-template-columns:repeat(3,minmax(0,1fr))}.cmp .k{grid-column:1/-1;padding-bottom:0;border-top:1px solid var(--line)}.cmp .k~.pro,.cmp .k~.adv{border-top:0}.cmp .h.k{display:none}}
 /* contacts */
 .phone{font-family:var(--serif);font-size:clamp(30px,4.2vw,52px);letter-spacing:-.01em}
 .copy{appearance:none;background:transparent;border:1px solid var(--line);color:var(--fg);border-radius:999px;padding:9px 16px;font:inherit;font-size:14px;cursor:pointer}
@@ -236,17 +236,29 @@ ul.plain{margin:0;padding-left:20px;line-height:1.75;color:#CBD7E1}
       <h2>Тариф окупает одна дошедшая заявка</h2>
     </div>
     <div class="grid c3">
-      <div class="card price good rv">
-        <span class="badge">Оптимальный</span>
-        <p class="eyebrow" style="margin-top:22px">Тариф Pro</p>
-        <span class="num">10 000 ₽ <span style="font-size:.45em;color:var(--muted)">в месяц</span></span>
+      <div class="card price rv">
+        <span class="badge" style="background:#D9C9B8">Для старта</span>
+        <p class="eyebrow" style="margin-top:22px">Базовый</p>
+        <span class="num">5 000 ₽ <span style="font-size:.45em;color:var(--muted)">в месяц</span></span>
         <ul class="plain">
-          <li>До 90 заявок в месяц</li>
+          <li>До 30 заявок в месяц</li>
           <li>Запуск и наполнение бота под ключ — включены</li>
           <li>Ответы по вашему сайту, услугам и ценам</li>
-          <li>Виджет на сайт, заявки в Telegram, Max и на почту</li>
+          <li>Виджет на сайт, заявки в Telegram и на почту</li>
+          <li>Ответы бота настраиваем под ваш бизнес</li>
+        </ul>
+      </div>
+      <div class="card price good rv">
+        <span class="badge">Оптимальный</span>
+        <p class="eyebrow" style="margin-top:22px">Pro</p>
+        <span class="num">10 000 ₽ <span style="font-size:.45em;color:var(--muted)">в месяц</span></span>
+        <p style="color:#fff;margin-bottom:8px">Всё, что в Базовом, плюс:</p>
+        <ul class="plain">
+          <li>До 90 заявок в месяц — в 3 раза больше</li>
+          <li>Заявки ещё и в Max</li>
           <li>Интеграция с вашей CRM</li>
           <li>Аналитика: откуда пришёл клиент и чем закончился диалог</li>
+          <li>Знает больше: до 500 страниц сайта</li>
         </ul>
       </div>
       <div class="card price rv">
@@ -257,50 +269,45 @@ ul.plain{margin:0;padding-left:20px;line-height:1.75;color:#CBD7E1}
         <ul class="plain">
           <li>До 180 заявок в месяц — в 2 раза больше</li>
           <li>Бот сам ведёт диалог в WhatsApp, Telegram, Instagram и почте — не только на сайте</li>
-          <li>Знает больше: до 2 000 страниц сайта, ваши файлы и прайсы</li>
+          <li>До 2 000 страниц сайта, ваши файлы и прайсы</li>
           <li>Отчёты о качестве диалогов: что спрашивают и где теряются клиенты</li>
           <li>Команда и роли в CRM: у каждого менеджера свои заявки</li>
         </ul>
       </div>
-      <div class="card price rv">
-        <p class="eyebrow">Под вашу задачу</p>
-        <h3 style="margin:14px 0 16px">Когда нужно больше, чем в тарифах</h3>
-        <ul class="plain">
-          <li>Нестандартные интеграции: 1С, своя CRM, внутренние сервисы</li>
-          <li>Сети и филиалы: отдельный бот для каждого сайта</li>
-          <li>Больше 180 заявок в месяц</li>
-          <li>Бот без логотипа B24U, в вашем фирменном стиле</li>
-          <li>Персональный менеджер и приоритетная поддержка</li>
-        </ul>
-        <p class="muted" style="margin-top:16px">Стоимость зависит от того, что подключаем. Считаем после короткого разговора о ваших задачах</p>
-      </div>
     </div>
+    <p class="lede rv" style="margin-top:36px;max-width:70ch;font-size:clamp(16px,1.7vw,20px)">Нужно больше — сети и филиалы, нестандартные интеграции (1С, своя CRM), бот без логотипа B24U, персональный менеджер? Считаем индивидуально после короткого разговора о ваших задачах.</p>
   </div>
 </section>
 
 <section class="band">
   <div class="wrap">
     <div class="head rv">
-      <p class="eyebrow">Pro или Продвинутый</p>
-      <h2>Что даёт Продвинутый<br>по сравнению с Pro</h2>
+      <p class="eyebrow">Сравнение тарифов</p>
+      <h2>Чем отличаются тарифы</h2>
     </div>
     <div class="cmp rv">
       <div class="h k"></div>
+      <div class="h"><p class="eyebrow">Базовый · 5 000 ₽</p></div>
       <div class="h"><p class="eyebrow">Pro · 10 000 ₽</p></div>
       <div class="h"><p class="eyebrow" style="color:var(--accent)">Продвинутый · 20 000 ₽</p></div>
       <div class="k">Заявок в месяц</div>
+      <div class="pro">До 30</div>
       <div class="pro">До 90</div>
-      <div class="adv">До 180 — в 2 раза больше</div>
+      <div class="adv">До 180</div>
       <div class="k">Где работает бот</div>
-      <div class="pro">На сайте, заявки пересылает в мессенджеры</div>
+      <div class="pro">На сайте, заявки в Telegram и на почту</div>
+      <div class="pro">На сайте, заявки в Telegram, Max и на почту</div>
       <div class="adv main"><small>Главное отличие</small>Сам ведёт диалог в WhatsApp, Telegram, Instagram и почте, а не только на сайте</div>
       <div class="k">Что знает</div>
+      <div class="pro">Ваш сайт, до 250 страниц</div>
       <div class="pro">Ваш сайт, до 500 страниц</div>
       <div class="adv">До 2 000 страниц сайта, плюс ваши файлы и прайсы</div>
       <div class="k">Отчёты</div>
+      <div class="pro">Заявки на почту</div>
       <div class="pro">Откуда пришёл клиент и чем закончился диалог</div>
       <div class="adv">Плюс качество диалогов: что спрашивают клиенты и где они теряются</div>
       <div class="k">CRM</div>
+      <div class="pro">—</div>
       <div class="pro">Интеграция с вашей CRM</div>
       <div class="adv">Плюс команда и роли: у каждого менеджера свои заявки</div>
     </div>
