@@ -74,6 +74,7 @@ ul.plain{margin:0;padding-left:20px;line-height:1.75;color:#CBD7E1}
 .bubble.them{background:rgba(255,255,255,.07)}
 .bubble.me{background:rgba(140,185,235,.19);border-color:rgba(160,200,240,.3)}
 .hl{color:var(--accent)}
+.why{display:block;font-size:11px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
 .kv{display:flex;justify-content:space-between;gap:16px;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.1);font-size:clamp(15px,1.5vw,19px)}
 .kv:last-child{border-bottom:0}
 .kv span:first-child{color:var(--muted)}
@@ -147,26 +148,34 @@ ul.plain{margin:0;padding-left:20px;line-height:1.75;color:#CBD7E1}
   <div class="wrap">
     <div class="head rv">
       <p class="eyebrow">Диалог на сайте</p>
-      <h2>Отвечает на вопросы —<br>и берёт номер телефона</h2>
+      <h2>Разговаривает как живой консультант —<br>и берёт номер телефона</h2>
     </div>
     <div class="grid c2 rv" style="margin-bottom:clamp(28px,3.4vw,44px)">
       <div class="rule"><p class="eyebrow" style="color:var(--warn);margin-bottom:10px">Без бота</p><p class="lede" style="font-size:clamp(17px,1.8vw,21px)">Зашёл, посмотрел, ушёл. Вы заплатили за клик и даже не знаете, кто это был</p></div>
-      <div class="rule" style="border-top-color:var(--accent)"><p class="eyebrow" style="color:var(--accent);margin-bottom:10px">С ботом</p><p class="lede" style="font-size:clamp(17px,1.8vw,21px)">Имя, телефон и удобное время для звонка. Это лид, с которым менеджер может работать</p></div>
+      <div class="rule" style="border-top-color:var(--accent)"><p class="eyebrow" style="color:var(--accent);margin-bottom:10px">С ботом</p><p class="lede" style="font-size:clamp(17px,1.8vw,21px)">Имя, телефон и удобный способ связи. Это лид, с которым менеджер может работать</p></div>
     </div>
-    <div class="grid c2">
+    <div class="grid c2" style="align-items:start">
       <div class="stack" style="gap:12px">
-        <div class="bubble them rv">Здравствуйте! Подсказать <span class="hl">по стоимости</span>?</div>
-        <div class="bubble me rv">Да. От чего зависит цена?</div>
-        <div class="bubble them rv">От объёма и деталей задачи. Менеджер сделает точный расчёт — как вас зовут и куда перезвонить?</div>
-        <div class="bubble me rv">Меня зовут <span class="hl">Анна</span>, телефон <span class="hl">+7 912 ··· ··42</span>. Удобно <span class="hl">завтра после 10</span></div>
+        <div class="bubble them rv"><small class="why">Видит контекст</small>Здравствуйте! Вижу, вы изучаете цены. Помочь выбрать, что подойдёт именно вам?</div>
+        <div class="bubble me rv">Да, у вас много вариантов, я запуталась</div>
+        <div class="bubble them rv"><small class="why">Уточняет задачу</small>Понимаю, давайте разберёмся. Это нужно срочно или можно спокойно спланировать?</div>
+        <div class="bubble me rv">Не горит, но хотелось бы <span class="hl">в этом месяце</span>. И <span class="hl">без переплат</span></div>
+        <div class="bubble them rv"><small class="why">Советует</small>Тогда начните с базового варианта: его чаще выбирают в такой ситуации, и по срокам он укладывается. Дополнительные опции можно добавить позже.</div>
+        <div class="bubble me rv">А чем вы лучше других? Везде обещают одно и то же</div>
+        <div class="bubble them rv"><small class="why">Снимает сомнения</small>Справедливый вопрос. У нас цена фиксируется в договоре и есть гарантия на работу. А точный расчёт вы получите заранее — он ни к чему не обязывает.</div>
+        <div class="bubble me rv">Ладно, пришлите расчёт. Только <span class="hl">не звоните</span>, я на работе</div>
+        <div class="bubble them rv"><small class="why">Подстраивается</small>Конечно! Пришлём в WhatsApp или Telegram — как удобнее? И как к вам обращаться?</div>
+        <div class="bubble me rv"><span class="hl">Анна</span>, <span class="hl">WhatsApp</span> +7 912 ··· ··42</div>
       </div>
-      <div class="card rv">
+      <div class="card rv" style="position:sticky;top:24px">
         <p class="eyebrow" style="margin-bottom:14px">AI разобрал диалог</p>
         <div class="kv"><span>Имя</span><span>Анна</span></div>
         <div class="kv"><span>Телефон</span><span>+7 912 ··· ··42</span></div>
-        <div class="kv"><span>Перезвонить</span><span>Завтра после 10:00</span></div>
+        <div class="kv"><span>Связь</span><span>WhatsApp, не звонить</span></div>
+        <div class="kv"><span>Срок</span><span>В этом месяце</span></div>
+        <div class="kv"><span>Важно</span><span>Без переплат, гарантия</span></div>
         <div class="kv"><span>Категория</span><span style="color:var(--accent)">Горячая заявка</span></div>
-        <p class="muted" style="margin-top:18px;font-size:16px">Без бота этот человек посмотрел бы цены и ушёл — вы бы даже не узнали, кто это. Бот сам попросил телефон, пока интерес горячий, и у менеджера готовый лид.</p>
+        <p class="muted" style="margin-top:18px;font-size:16px">Бот разобрался в задаче, ответил на сомнения и сам предложил удобный способ связи. Менеджер продолжает разговор с того места, где остановился бот.</p>
       </div>
     </div>
   </div>
