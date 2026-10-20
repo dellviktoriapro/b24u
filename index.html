@@ -1,0 +1,367 @@
+<title>Мы отвечаем за вас</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;700&family=Instrument+Serif:ital@0;1&display=swap">
+<style>
+/* Тёмный «ночной» мир: полноэкранные кадры, тонкий гротеск, серифные числа как акцент */
+:root{
+  --ink:#070B10; --ink-2:#0D141C; --surface:rgba(255,255,255,.06); --line:rgba(255,255,255,.16);
+  --fg:#F3F7FA; --muted:#A8B8C6; --accent:#8FD0A8; --warn:#D9AE9B;
+  --sans:'Manrope',system-ui,Arial,sans-serif; --serif:'Instrument Serif',Georgia,serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ink);color:var(--fg);font-family:var(--sans);font-weight:300;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0;z-index:-3;background:
+ linear-gradient(180deg,#070B10 0%,#1C1715 16%,#141A1F 33%,#0F2033 52%,#0E1A24 68%,#141820 82%,#070B10 100%)}
+body::after{content:"";position:fixed;inset:0;z-index:-3;pointer-events:none;background:
+ radial-gradient(60% 40% at 18% 22%,rgba(217,174,155,.12),transparent 70%),
+ radial-gradient(55% 38% at 82% 58%,rgba(130,180,230,.14),transparent 72%),
+ radial-gradient(50% 36% at 30% 86%,rgba(143,208,168,.10),transparent 74%)}
+.wrap{padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px));max-width:1280px;margin:0 auto}
+section{position:relative;overflow:hidden}
+.band{padding-block:clamp(72px,9vw,132px)}
+h1,h2,h3{text-wrap:balance;margin:0;font-weight:300;letter-spacing:-.03em;line-height:1.04}
+h1{font-size:clamp(44px,8.4vw,104px)}
+h2{font-size:clamp(32px,5.2vw,64px)}
+h3{font-size:clamp(19px,2vw,23px);font-weight:500;letter-spacing:-.01em}
+p{margin:0;line-height:1.5}
+.eyebrow{font-size:13px;font-weight:500;letter-spacing:.32em;text-transform:uppercase;color:var(--muted)}
+.lede{font-size:clamp(17px,2.1vw,25px);color:#D3E0EA;max-width:46ch}
+.muted{color:var(--muted)}
+.num{font-family:var(--serif);font-weight:400;letter-spacing:-.02em;line-height:1}
+/* progress */
+#bar{position:fixed;left:0;top:0;height:2px;width:0;background:var(--accent);z-index:30}
+/* hero */
+.hero{min-height:620px;display:flex;align-items:flex-end;padding-block:clamp(96px,16vh,180px) clamp(56px,8vh,92px)}
+.shot{position:absolute;inset:-8% 0 -8%;width:100%;height:116%;object-fit:cover;z-index:-2}
+.scrim{position:absolute;inset:0;z-index:-1}
+.hero .scrim{background:linear-gradient(96deg,rgba(4,9,15,.94) 0%,rgba(4,9,15,.7) 44%,rgba(4,9,15,.22) 100%)}
+.photo::before,.photo::after{content:"";position:absolute;left:0;right:0;height:clamp(90px,14vh,190px);pointer-events:none;z-index:0}
+.photo::before{top:0;background:linear-gradient(180deg,#070B10,rgba(7,11,16,0))}
+.photo::after{bottom:0;background:linear-gradient(0deg,#070B10,rgba(7,11,16,0))}
+.photo .wrap{position:relative;z-index:1}
+section+section{margin-top:-1px}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:48px;align-items:end}
+.stack{display:flex;flex-direction:column;gap:22px;min-width:0}
+.toast{display:flex;flex-direction:column;gap:4px;background:rgba(7,13,21,.68);border:1px solid var(--line);border-radius:16px;padding:16px 20px;backdrop-filter:blur(6px)}
+.toast b{font-weight:500;font-size:16px}
+.toast span{font-size:15px;color:var(--muted)}
+.toasts{display:flex;flex-direction:column;gap:12px}
+.tag{display:inline-block;font-size:14px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
+/* generic */
+.grid{display:grid;gap:clamp(18px,2.4vw,30px)}
+.c2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.c3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.c4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:clamp(20px,2.4vw,30px);min-width:0}
+.card.good{background:rgba(143,208,168,.1);border-color:rgba(143,208,168,.36)}
+.rule{border-top:1px solid var(--line);padding-top:20px;min-width:0}
+ul.plain{margin:0;padding-left:20px;line-height:1.75;color:#CBD7E1}
+.head{display:flex;flex-direction:column;gap:18px;margin-bottom:clamp(32px,4vw,56px)}
+/* pains */
+.pain{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(16px,3vw,40px);align-items:start;padding-block:22px;border-top:1px solid var(--line)}
+.pain p:first-child{color:var(--warn)}
+.pain p:last-child{color:#DCE7EF}
+/* hours */
+.hours{display:grid;grid-template-columns:repeat(24,1fr);gap:clamp(2px,.42vw,6px);margin-top:28px}
+.hr-cell{aspect-ratio:1.35;border-radius:3px;background:rgba(255,255,255,.08);transition:background .5s ease,transform .5s ease}
+.hr-cell.on{background:#EFF4F1}
+.stats{display:flex;flex-wrap:wrap;gap:clamp(24px,5vw,72px)}
+.stat .num{font-size:clamp(46px,7vw,84px)}
+.stat p{font-size:16px;color:var(--muted);margin-top:6px;max-width:22ch}
+/* chat */
+.bubble{border-radius:18px;padding:16px 20px;font-size:clamp(15px,1.5vw,19px);line-height:1.45;border:1px solid var(--line)}
+.bubble.them{background:rgba(255,255,255,.07)}
+.bubble.me{background:rgba(140,185,235,.19);border-color:rgba(160,200,240,.3)}
+.hl{color:var(--accent)}
+.kv{display:flex;justify-content:space-between;gap:16px;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.1);font-size:clamp(15px,1.5vw,19px)}
+.kv:last-child{border-bottom:0}
+.kv span:first-child{color:var(--muted)}
+/* pricing */
+.price .num{font-size:clamp(34px,4.4vw,54px);display:block;margin:10px 0 12px}
+.badge{display:inline-block;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#07140D;background:var(--accent);border-radius:999px;padding:5px 12px;font-weight:700}
+/* contacts */
+.phone{font-family:var(--serif);font-size:clamp(30px,4.2vw,52px);letter-spacing:-.01em}
+.copy{appearance:none;background:transparent;border:1px solid var(--line);color:var(--fg);border-radius:999px;padding:9px 16px;font:inherit;font-size:14px;cursor:pointer}
+.copy:hover{border-color:var(--accent);color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+/* reveal */
+.anim .rv{opacity:0;transform:translateY(18px);transition:opacity 1s cubic-bezier(.22,.61,.36,1),transform 1s cubic-bezier(.22,.61,.36,1)}
+.anim .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.anim .rv{opacity:1;transform:none;transition:none}.shot{position:absolute;inset:0;height:100%}}
+@media (max-width:860px){
+  .hero-grid,.c2,.c3,.c4,.pain{grid-template-columns:minmax(0,1fr)}
+  .hours{grid-template-columns:repeat(12,1fr)}
+}
+</style>
+
+<div id="bar"></div>
+
+<section class="hero photo">
+  <img class="shot" id="shot1" src="img/sea.jpg" alt="Парусник в открытом море">
+  <div class="scrim"></div>
+  <div class="wrap hero-grid">
+    <div class="stack">
+      <p class="eyebrow">B24U · AI-консультант для сайта</p>
+      <h1>Мы отвечаем<br>за вас</h1>
+      <p class="lede">AI-консультант отвечает вашим клиентам за секунды — в любое время суток — и отдаёт отделу продаж готовую заявку с именем, услугой и сроком.</p>
+      <p class="tag">Бесплатно 7 дней · карта не нужна · разработчик не нужен</p>
+    </div>
+    <div class="toasts">
+      <div class="toast rv"><b>Новая заявка · 21:47</b><span>Имплантация, суббота утром</span></div>
+      <div class="toast rv"><b>Отправлено в CRM · 21:47</b><span>Назначено на Анну С.</span></div>
+      <div class="toast rv"><b>229 вопросов за сутки</b><span>сайт, WhatsApp, Telegram</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="eyebrow">Где утекают деньги</p>
+      <h2>Вы платите за клиента дважды<br>и теряете его бесплатно</h2>
+    </div>
+    <div class="pain rv"><p>Заявка пришла в 23:10, ответили в 10:00. Человек уже записался к другим</p><p>Агент отвечает за секунды в любое время суток — ночью, в выходные, в праздники</p></div>
+    <div class="pain rv"><p>Администратор занят в зале, чат и мессенджеры молчат по 40 минут</p><p>Ведёт все диалоги одновременно, сколько бы их ни пришло</p></div>
+    <div class="pain rv"><p>Реклама крутится круглосуточно, обрабатывать её некому 123 часа в неделю</p><p>Закрывает весь трафик, который вы уже оплатили, без найма второй смены</p></div>
+    <div class="pain rv"><p>Менеджеру падает голый номер: кто, зачем, насколько горячий — неизвестно</p><p>Отдаёт заявку с именем, услугой, сроком и приоритетом — в Telegram, на почту или в CRM</p></div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="eyebrow">Неделя целиком</p>
+      <h2>В неделе 168 часов.<br>Вы отвечаете 45</h2>
+    </div>
+    <div class="stats rv">
+      <div class="stat"><div class="num" data-count="27" data-suffix="%">0%</div><p>времени клиенту вообще есть кому ответить</p></div>
+      <div class="stat"><div class="num" data-count="123" data-suffix=" ч" style="color:var(--accent)">0 ч</div><p>тишины в неделю — их закрывает агент</p></div>
+    </div>
+    <div class="hours rv" id="hours" aria-label="Сетка 168 часов недели: светлые клетки — рабочие часы с 9 до 18 по будням"></div>
+    <p class="muted rv" style="margin-top:22px;font-size:15px">Светлые клетки — Пн–Пт с 9:00 до 18:00. Тёмные — часы, в которые реклама работает, а продажи нет</p>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="eyebrow">Диалог на сайте</p>
+      <h2>Отвечает вашими ценами и сроками —<br>и достаёт контакт без формы</h2>
+    </div>
+    <div class="grid c2">
+      <div class="stack" style="gap:12px">
+        <div class="bubble them rv">Здравствуйте! Подсказать стоимость <span class="hl">имплантации под ключ</span>?</div>
+        <div class="bubble me rv">Да. И сколько это займёт по времени?</div>
+        <div class="bubble them rv">Имплант с коронкой — от 89 000 ₽. Ставим за одно посещение.</div>
+        <div class="bubble me rv">Можно <span class="hl">на этой неделе</span>? Меня зовут <span class="hl">Анна</span>, телефон <span class="hl">+7 912 ··· ··42</span></div>
+      </div>
+      <div class="card rv">
+        <p class="eyebrow" style="margin-bottom:14px">AI разобрал диалог</p>
+        <div class="kv"><span>Имя</span><span>Анна</span></div>
+        <div class="kv"><span>Телефон</span><span>+7 912 ··· ··42</span></div>
+        <div class="kv"><span>Услуга</span><span>Имплантация</span></div>
+        <div class="kv"><span>Когда</span><span>Суббота, утро</span></div>
+        <div class="kv"><span>Категория</span><span style="color:var(--accent)">Горячая заявка</span></div>
+        <p class="muted" style="margin-top:18px;font-size:16px">Ни одной формы, ни одного «оставьте заявку». Контакт собран внутри разговора, пока интерес горячий.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="eyebrow">Что изменится</p>
+      <h2>Через неделю после запуска</h2>
+    </div>
+    <div class="grid c2">
+      <div class="card rv" style="background:transparent">
+        <p class="eyebrow" style="color:var(--warn);margin-bottom:14px">Сейчас вы теряете</p>
+        <ul class="plain">
+          <li>Ночные и вечерние обращения</li>
+          <li>Тех, кто не стал ждать ответа</li>
+          <li>Деньги за клики без обработки</li>
+          <li>Время менеджера на дозвон вслепую</li>
+          <li>Понимание, какая реклама даёт продажи</li>
+        </ul>
+      </div>
+      <div class="card good rv">
+        <p class="eyebrow" style="color:var(--accent);margin-bottom:14px">После запуска получаете</p>
+        <ul class="plain">
+          <li>Ответ за секунды 24/7, включая выходные</li>
+          <li>Заявки из ночи — утром в работе</li>
+          <li>Весь оплаченный трафик обработан</li>
+          <li>Карточку с именем, услугой и сроком</li>
+          <li>Отчёт: источник — диалог — сделка</li>
+        </ul>
+      </div>
+    </div>
+    <div class="rule rv" style="margin-top:36px;display:flex;gap:28px;flex-wrap:wrap;align-items:center">
+      <div class="num" style="font-size:clamp(40px,6vw,70px);color:var(--accent)" data-count="105000" data-suffix=" ₽">0 ₽</div>
+      <p class="lede" style="max-width:60ch">столько возвращают три спасённые сделки в месяц при среднем чеке 35 000 ₽ — против 5 900 ₽ за тариф</p>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="eyebrow">Сколько стоит</p>
+      <h2>Тариф окупает одна дошедшая заявка</h2>
+    </div>
+    <div class="grid c3">
+      <div class="card price rv">
+        <p class="eyebrow">Сайт</p>
+        <span class="num">от 2 500 ₽</span>
+        <p class="muted">15–30 заявок в месяц. Ответы по вашему сайту, виджет, заявки в мессенджер и на почту.</p>
+      </div>
+      <div class="card price good rv">
+        <span class="badge">Выбирают чаще</span>
+        <span class="num">от 5 900 ₽</span>
+        <p class="muted">90 заявок в месяц. Плюс интеграция с вашей CRM, сквозная аналитика и товарные фиды.</p>
+      </div>
+      <div class="card price rv">
+        <p class="eyebrow">Все каналы</p>
+        <span class="num">от 10 900 ₽</span>
+        <p class="muted">От 180 заявок. WhatsApp, Telegram, Instagram и почта, онлайн-запись в календарь.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band photo">
+  <img class="shot" id="shot2" src="img/family.jpg" alt="Семья на прогулке по зелёному холму">
+  <div class="scrim" style="background:linear-gradient(92deg,rgba(6,12,9,.94),rgba(6,12,9,.68) 55%,rgba(6,12,9,.4))"></div>
+  <div class="wrap">
+    <div class="head rv">
+      <p class="eyebrow">Запуск</p>
+      <h2>Проверить ничем не рискуя</h2>
+    </div>
+    <div class="grid c4">
+      <div class="rule rv"><p class="eyebrow">5 минут</p><h3 style="margin:8px 0">Адрес сайта</h3><p class="muted">Вы даёте домен и пару слов о бизнесе.</p></div>
+      <div class="rule rv"><p class="eyebrow">Минуты</p><h3 style="margin:8px 0">Сканирование</h3><p class="muted">AI изучает сайт, услуги и цены и собирает консультанта.</p></div>
+      <div class="rule rv"><p class="eyebrow">День</p><h3 style="margin:8px 0">Настройка</h3><p class="muted">Ставим виджет, подключаем уведомления, проверяем ответы.</p></div>
+      <div class="rule rv" style="border-top-color:#fff"><p class="eyebrow" style="color:#fff">7 дней</p><h3 style="margin:8px 0">Бесплатный тест</h3><p class="muted">10 заявок и почти все функции. Карта не нужна.</p></div>
+    </div>
+    <p class="lede rv" style="margin-top:36px;max-width:70ch">Настройку, обучение агента и сопровождение берём на себя. Не подойдёт — отключаете в один клик, без счетов и обязательств.</p>
+  </div>
+</section>
+
+<section class="band photo" style="min-height:70vh;display:flex;align-items:flex-end">
+  <img class="shot" id="shot3" src="img/dawn.jpg" alt="Рассвет над горной долиной">
+  <div class="scrim" style="background:linear-gradient(0deg,rgba(5,9,14,.95),rgba(5,9,14,.55) 55%,rgba(5,9,14,.3))"></div>
+  <div class="wrap">
+    <div class="head rv">
+      <p class="eyebrow">Следующий шаг</p>
+      <h2>Пришлите адрес сайта —<br>соберём демо на ваших данных</h2>
+    </div>
+    <div class="grid c2 rv" style="max-width:900px">
+      <div class="rule">
+        <p class="eyebrow">Николай</p>
+        <p class="phone" id="p1">8 961 091 08 11</p>
+        <button class="copy" data-for="p1" style="margin-top:12px">Скопировать</button>
+      </div>
+      <div class="rule">
+        <p class="eyebrow">Виктория</p>
+        <p class="phone" id="p2">8 937 737 77 34</p>
+        <button class="copy" data-for="p2" style="margin-top:12px">Скопировать</button>
+      </div>
+    </div>
+    <p class="muted rv" style="margin-top:34px;font-size:15px">Демо-консультант на вашем сайте — в течение суток</p>
+  </div>
+</section>
+
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var root = document.documentElement;
+  if(!reduce) root.classList.add('anim');
+
+  // reveal
+  var rv = Array.prototype.slice.call(document.querySelectorAll('.rv'));
+  function show(el,i){ setTimeout(function(){ el.classList.add('in'); }, (i||0)*90); }
+  if('IntersectionObserver' in window && !reduce){
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(e.isIntersecting){
+          var sibs = Array.prototype.slice.call(e.target.parentNode.querySelectorAll('.rv:not(.in)'));
+          show(e.target, Math.max(0, sibs.indexOf(e.target)));
+          io.unobserve(e.target);
+          if(e.target.id === 'hours') lightHours();
+          var n = e.target.querySelector ? e.target.querySelectorAll('[data-count]') : [];
+          Array.prototype.forEach.call(n, countUp);
+        }
+      });
+    }, {rootMargin:'0px 0px -12% 0px', threshold:.15});
+    rv.forEach(function(el){ io.observe(el); });
+  } else {
+    rv.forEach(function(el){ el.classList.add('in'); });
+    Array.prototype.forEach.call(document.querySelectorAll('[data-count]'), function(el){ countUp(el,true); });
+  }
+
+  // hours grid
+  var grid = document.getElementById('hours'), cells = [];
+  for(var d=0; d<7; d++){
+    for(var h=0; h<24; h++){
+      var c = document.createElement('div');
+      c.className = 'hr-cell';
+      c.dataset.work = (d<5 && h>=9 && h<18) ? '1' : '';
+      grid.appendChild(c); cells.push(c);
+    }
+  }
+  var lit = false;
+  function lightHours(){
+    if(lit) return; lit = true;
+    var work = cells.filter(function(c){ return c.dataset.work; });
+    work.forEach(function(c,i){ setTimeout(function(){ c.classList.add('on'); }, reduce ? 0 : i*16); });
+  }
+
+  // count up
+  function countUp(el, now){
+    if(el.dataset.done) return; el.dataset.done = '1';
+    var target = parseInt(el.dataset.count,10), suf = el.dataset.suffix || '';
+    var fmt = function(v){ return v.toLocaleString('ru-RU') + suf; };
+    if(now || reduce){ el.textContent = fmt(target); return; }
+    var t0 = performance.now(), dur = 1100;
+    (function tick(t){
+      var p = Math.min(1,(t-t0)/dur), e = 1-Math.pow(1-p,3);
+      el.textContent = fmt(Math.round(target*e));
+      if(p<1) requestAnimationFrame(tick);
+    })(t0);
+  }
+
+  // parallax + progress
+  var shots = Array.prototype.slice.call(document.querySelectorAll('.shot'));
+  var bar = document.getElementById('bar'), ticking = false;
+  function frame(){
+    ticking = false;
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h>0 ? (window.scrollY/h)*100 : 0) + '%';
+    if(reduce) return;
+    shots.forEach(function(img){
+      var r = img.parentNode.getBoundingClientRect();
+      if(r.bottom < -200 || r.top > window.innerHeight + 200) return;
+      var p = (r.top + r.height/2 - window.innerHeight/2) / window.innerHeight;
+      img.style.transform = 'translateY(' + (p * -34) + 'px)';
+    });
+  }
+  addEventListener('scroll', function(){ if(!ticking){ ticking = true; requestAnimationFrame(frame); } }, {passive:true});
+  addEventListener('resize', frame); frame();
+
+  // copy
+  Array.prototype.forEach.call(document.querySelectorAll('.copy'), function(btn){
+    btn.addEventListener('click', function(){
+      var el = document.getElementById(btn.dataset.for), txt = el.textContent.trim();
+      var done = function(){ var o = btn.textContent; btn.textContent = 'Скопировано'; setTimeout(function(){ btn.textContent = o; }, 1600); };
+      try{
+        navigator.clipboard.writeText(txt).then(done, function(){ sel(el); });
+      }catch(e){ sel(el); }
+    });
+  });
+  function sel(el){
+    var r = document.createRange(); r.selectNodeContents(el);
+    var s = getSelection(); s.removeAllRanges(); s.addRange(r);
+  }
+})();
+</script>
