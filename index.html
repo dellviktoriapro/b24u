@@ -81,6 +81,16 @@ ul.plain{margin:0;padding-left:20px;line-height:1.75;color:#CBD7E1}
 /* pricing */
 .price .num{font-size:clamp(34px,4.4vw,54px);display:block;margin:10px 0 12px}
 .badge{display:inline-block;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#07140D;background:var(--accent);border-radius:999px;padding:5px 12px;font-weight:700}
+/* compare */
+.cmp{display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1fr) minmax(0,1.2fr);gap:0 clamp(16px,3vw,40px)}
+.cmp>div{padding:20px 0;border-top:1px solid var(--line)}
+.cmp .h{border-top:0;padding-top:0}
+.cmp .k{color:var(--muted);font-size:15px;padding-top:23px}
+.cmp .pro{color:#CBD7E1}
+.cmp .adv{color:var(--fg);font-size:clamp(16px,1.6vw,19px)}
+.cmp .main{color:var(--accent)}
+.cmp small{display:block;font-size:11px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
+@media (max-width:860px){.cmp{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.cmp .k{grid-column:1/-1;padding-bottom:0;border-top:1px solid var(--line)}.cmp .k~.pro,.cmp .k~.adv{border-top:0}.cmp .h.k{display:none}}
 /* contacts */
 .phone{font-family:var(--serif);font-size:clamp(30px,4.2vw,52px);letter-spacing:-.01em}
 .copy{appearance:none;background:transparent;border:1px solid var(--line);color:var(--fg);border-radius:999px;padding:9px 16px;font:inherit;font-size:14px;cursor:pointer}
@@ -264,6 +274,35 @@ ul.plain{margin:0;padding-left:20px;line-height:1.75;color:#CBD7E1}
         </ul>
         <p class="muted" style="margin-top:16px">Стоимость зависит от того, что подключаем. Считаем после короткого разговора о ваших задачах</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="eyebrow">Pro или Продвинутый</p>
+      <h2>Что даёт Продвинутый<br>по сравнению с Pro</h2>
+    </div>
+    <div class="cmp rv">
+      <div class="h k"></div>
+      <div class="h"><p class="eyebrow">Pro · 10 000 ₽</p></div>
+      <div class="h"><p class="eyebrow" style="color:var(--accent)">Продвинутый · 20 000 ₽</p></div>
+      <div class="k">Заявок в месяц</div>
+      <div class="pro">До 90</div>
+      <div class="adv">До 180 — в 2 раза больше</div>
+      <div class="k">Где работает бот</div>
+      <div class="pro">На сайте, заявки пересылает в мессенджеры</div>
+      <div class="adv main"><small>Главное отличие</small>Сам ведёт диалог в WhatsApp, Telegram, Instagram и почте, а не только на сайте</div>
+      <div class="k">Что знает</div>
+      <div class="pro">Ваш сайт, до 500 страниц</div>
+      <div class="adv">До 2 000 страниц сайта, плюс ваши файлы и прайсы</div>
+      <div class="k">Отчёты</div>
+      <div class="pro">Откуда пришёл клиент и чем закончился диалог</div>
+      <div class="adv">Плюс качество диалогов: что спрашивают клиенты и где они теряются</div>
+      <div class="k">CRM</div>
+      <div class="pro">Интеграция с вашей CRM</div>
+      <div class="adv">Плюс команда и роли: у каждого менеджера свои заявки</div>
     </div>
   </div>
 </section>
