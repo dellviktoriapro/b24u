@@ -83,18 +83,20 @@ ul.plain{margin:0;padding-left:20px;line-height:1.75;color:#CBD7E1}
 .kv:last-child{border-bottom:0}
 .kv span:first-child{color:var(--muted)}
 /* pricing */
-.price .num{font-size:clamp(34px,4.4vw,54px);display:block;margin:10px 0 12px}
+@media (max-width:1180px) and (min-width:861px){.tariffs{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.price .num{font-size:clamp(32px,3.4vw,44px);display:block;margin:10px 0 12px}
 .badge{display:inline-block;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#07140D;background:var(--accent);border-radius:999px;padding:5px 12px;font-weight:700}
 /* compare */
-.cmp{display:grid;grid-template-columns:minmax(0,.6fr) minmax(0,.9fr) minmax(0,.9fr) minmax(0,1.2fr);gap:0 clamp(16px,3vw,40px)}
+.cmp{display:grid;grid-template-columns:minmax(0,.7fr) repeat(4,minmax(0,1fr));gap:0 clamp(16px,3vw,40px)}
 .cmp>div{padding:20px 0;border-top:1px solid var(--line)}
 .cmp .h{border-top:0;padding-top:0}
 .cmp .k{color:var(--muted);font-size:15px;padding-top:23px}
 .cmp .pro{color:#CBD7E1}
-.cmp .adv{color:var(--fg);font-size:clamp(16px,1.6vw,19px)}
+.cmp .adv{color:var(--fg)}
+.cmp .pro,.cmp .adv{font-size:clamp(14px,1.3vw,16px)}
 .cmp .main{color:var(--accent)}
 .cmp small{display:block;font-size:11px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
-@media (max-width:860px){.cmp{grid-template-columns:repeat(3,minmax(0,1fr))}.cmp .k{grid-column:1/-1;padding-bottom:0;border-top:1px solid var(--line)}.cmp .k~.pro,.cmp .k~.adv{border-top:0}.cmp .h.k{display:none}}
+@media (max-width:860px){.cmp{grid-template-columns:repeat(4,minmax(0,1fr));font-size:13px}.cmp .k{grid-column:1/-1;padding-bottom:0;border-top:1px solid var(--line)}.cmp .k~.pro,.cmp .k~.adv{border-top:0}.cmp .h.k{display:none}}
 /* contacts */
 .phone{font-family:var(--serif);font-size:clamp(30px,4.2vw,52px);letter-spacing:-.01em}
 .copy{appearance:none;background:transparent;border:1px solid var(--line);color:var(--fg);border-radius:999px;padding:9px 16px;font:inherit;font-size:14px;cursor:pointer}
@@ -259,18 +261,18 @@ ul.plain{margin:0;padding-left:20px;line-height:1.75;color:#CBD7E1}
       <p class="eyebrow">Сколько стоит</p>
       <h2>Тариф окупает одна дошедшая заявка</h2>
     </div>
-    <div class="grid c3">
+    <div class="grid c4 tariffs">
       <div class="card price good rv">
         <span class="badge">Оптимальный</span>
         <p class="eyebrow" style="margin-top:22px">Базовый</p>
         <span class="num">10 000 ₽ <span style="font-size:.45em;color:var(--muted)">в месяц</span></span>
         <ul class="plain">
-          <li>До 90 заявок в месяц</li>
           <li>Запуск и наполнение бота под ключ — включены</li>
           <li>Отвечает по вашему сайту, услугам и ценам</li>
           <li>Базовые настройки: приветствие, тон общения, вид виджета</li>
           <li>Заявки в Telegram, Max и на почту</li>
           <li>Передача заявок в вашу CRM через вебхуки</li>
+          <li>Аналитика в личном кабинете</li>
         </ul>
       </div>
       <div class="card price rv">
@@ -279,12 +281,11 @@ ul.plain{margin:0;padding-left:20px;line-height:1.75;color:#CBD7E1}
         <span class="num">20 000 ₽ <span style="font-size:.45em;color:var(--muted)">в месяц</span></span>
         <p style="color:#fff;margin-bottom:8px">Всё, что в Базовом, плюс:</p>
         <ul class="plain">
-          <li>До 180 заявок в месяц — в 2 раза больше</li>
           <li>Бот сам отвечает клиентам в Telegram, Max, ВКонтакте, Instagram и почте — не только на сайте</li>
           <li>Отвечает покупателям на Avito и Ozon</li>
           <li>Онлайн-запись через Google Календарь и YClients</li>
           <li>Понимает фото и документы, которые присылает клиент</li>
-          <li>Команда и роли в CRM: у каждого менеджера свои заявки</li>
+          <li>Встроенная CRM с командой и ролями</li>
         </ul>
       </div>
       <div class="card price rv">
@@ -293,15 +294,27 @@ ul.plain{margin:0;padding-left:20px;line-height:1.75;color:#CBD7E1}
         <span class="num">35 000 ₽ <span style="font-size:.45em;color:var(--muted)">в месяц</span></span>
         <p style="color:#fff;margin-bottom:8px">Всё, что в Продвинутом, плюс:</p>
         <ul class="plain">
-          <li>До 360 заявок в месяц — в 2 раза больше</li>
           <li>Отчёт мониторинга: ИИ разбирает диалоги и показывает, где теряются клиенты</li>
           <li>Филиалы и отдельные страницы — свой бот по сниженной цене</li>
           <li>Знает больше: до 4 000 страниц сайта</li>
           <li>До 300 сотрудников и 200 воронок в CRM</li>
         </ul>
       </div>
+      <div class="card price rv">
+        <span class="badge" style="background:#E8D9A8">Максимум</span>
+        <p class="eyebrow" style="margin-top:22px">Премиум</p>
+        <span class="num">от 120 000 ₽ <span style="font-size:.45em;color:var(--muted)">в месяц</span></span>
+        <p style="color:#fff;margin-bottom:8px">Всё, что в Бизнесе, плюс:</p>
+        <ul class="plain">
+          <li>Бот полностью под вашим брендом — без логотипа B24U</li>
+          <li>Индивидуальные интеграции с вашей CRM и внутренними системами</li>
+          <li>Расширенный мониторинг: намерения клиентов, нецелевые обращения, сравнение с вашей нишей</li>
+          <li>Выделенная поддержка с приоритетным ответом</li>
+          <li>До 10 000 страниц сайта</li>
+        </ul>
+      </div>
     </div>
-    <p class="lede rv" style="margin-top:36px;max-width:70ch;font-size:clamp(16px,1.7vw,20px)">Нужно больше — свыше 360 заявок, нестандартные интеграции (1С, своя CRM), бот без логотипа B24U, персональный менеджер? Считаем индивидуально после короткого разговора о ваших задачах.</p>
+    <p class="lede rv" style="margin-top:36px;max-width:70ch;font-size:clamp(16px,1.7vw,20px)">Не знаете, какой тариф выбрать? Начните с 7 дней бесплатно — по итогам теста подскажем, что подойдёт именно вам.</p>
   </div>
 </section>
 
@@ -313,41 +326,50 @@ ul.plain{margin:0;padding-left:20px;line-height:1.75;color:#CBD7E1}
     </div>
     <div class="cmp rv">
       <div class="h k"></div>
-      <div class="h"><p class="eyebrow">Базовый · 10 000 ₽</p></div>
+      <div class="h"><p class="eyebrow" style="color:var(--accent)">Базовый · 10 000 ₽</p></div>
       <div class="h"><p class="eyebrow">Продвинутый · 20 000 ₽</p></div>
-      <div class="h"><p class="eyebrow" style="color:var(--accent)">Бизнес · 35 000 ₽</p></div>
-      <div class="k">Заявок в месяц</div>
-      <div class="pro">До 90</div>
-      <div class="pro">До 180</div>
-      <div class="adv">До 360</div>
+      <div class="h"><p class="eyebrow">Бизнес · 35 000 ₽</p></div>
+      <div class="h"><p class="eyebrow">Премиум · от 120 000 ₽</p></div>
       <div class="k">Где работает бот</div>
-      <div class="pro">На сайте, заявки в Telegram, Max и на почту</div>
+      <div class="adv">На сайте, заявки в Telegram, Max и на почту</div>
       <div class="pro">Сам отвечает в Telegram, Max, ВКонтакте, Instagram, почте, на Avito и Ozon</div>
-      <div class="adv">Как в Продвинутом, до 10 почтовых ящиков</div>
+      <div class="pro">Как в Продвинутом</div>
+      <div class="pro">Как в Продвинутом</div>
       <div class="k">Онлайн-запись</div>
-      <div class="pro">—</div>
+      <div class="adv">—</div>
       <div class="pro">Google Календарь, YClients</div>
-      <div class="adv">Google Календарь, YClients</div>
+      <div class="pro">Google Календарь, YClients</div>
+      <div class="pro">Google Календарь, YClients</div>
       <div class="k">Что знает</div>
-      <div class="pro">Ваш сайт, до 500 страниц</div>
-      <div class="pro">До 2 000 страниц сайта</div>
-      <div class="adv">До 4 000 страниц сайта</div>
+      <div class="adv">Ваш сайт, до 500 страниц</div>
+      <div class="pro">До 2 000 страниц</div>
+      <div class="pro">До 4 000 страниц</div>
+      <div class="pro">До 10 000 страниц</div>
       <div class="k">Файлы от клиента</div>
-      <div class="pro">Клиент может прислать файл в чат</div>
+      <div class="adv">Клиент может прислать файл в чат</div>
       <div class="pro">Бот сам понимает фото и документы</div>
-      <div class="adv">Как в Продвинутом</div>
+      <div class="pro">Как в Продвинутом</div>
+      <div class="pro">Как в Продвинутом</div>
       <div class="k">CRM</div>
-      <div class="pro">Заявки в вашу CRM через вебхуки</div>
-      <div class="pro">Плюс встроенная CRM с командой и ролями</div>
-      <div class="adv">До 300 сотрудников и 200 воронок</div>
+      <div class="adv">Заявки в вашу CRM через вебхуки</div>
+      <div class="pro">Встроенная CRM с командой и ролями</div>
+      <div class="pro">До 300 сотрудников и 200 воронок</div>
+      <div class="pro">Индивидуальные интеграции с любыми системами</div>
       <div class="k">Аналитика</div>
-      <div class="pro">История всех диалогов</div>
+      <div class="adv">Аналитика в личном кабинете</div>
       <div class="pro">Как в Базовом</div>
-      <div class="adv">Плюс отчёт мониторинга: где и почему теряются клиенты</div>
+      <div class="pro">Отчёт мониторинга: где теряются клиенты</div>
+      <div class="pro">Расширенный: намерения, нецелевые обращения, сравнение с нишей</div>
       <div class="k">Филиалы</div>
+      <div class="adv">—</div>
+      <div class="pro">—</div>
+      <div class="pro">Свой бот для каждого по сниженной цене</div>
+      <div class="pro">Как в Бизнесе</div>
+      <div class="k">Бренд и поддержка</div>
+      <div class="adv">—</div>
       <div class="pro">—</div>
       <div class="pro">—</div>
-      <div class="adv">Свой бот для каждого филиала по сниженной цене</div>
+      <div class="pro">Без логотипа B24U, выделенная поддержка</div>
     </div>
   </div>
 </section>
