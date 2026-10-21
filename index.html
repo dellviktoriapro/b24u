@@ -48,6 +48,9 @@ section+section{margin-top:-1px}
 .toast b{font-weight:500;font-size:16px}
 .toast span{font-size:15px;color:var(--muted)}
 .toasts{display:flex;flex-direction:column;gap:12px}
+.trial{display:flex;flex-direction:column;gap:4px;align-self:flex-start;background:rgba(143,208,168,.14);border:1px solid rgba(143,208,168,.5);border-radius:16px;padding:14px 22px}
+.trial b{font-weight:500;font-size:clamp(19px,2vw,24px);color:var(--accent)}
+.trial span{font-size:15px;color:#D3E0EA}
 .tag{display:inline-block;font-size:14px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
 /* generic */
 .grid{display:grid;gap:clamp(18px,2.4vw,30px)}
@@ -117,7 +120,8 @@ ul.plain{margin:0;padding-left:20px;line-height:1.75;color:#CBD7E1}
       <p class="kicker">AI-консультант B24U для сайта и мессенджеров</p>
       <h1>Мы отвечаем<br>за вас</h1>
       <p class="lede">Умный онлайн-консультант: 24/7 отвечает вашим клиентам по вашим услугам и ценам, берёт номер телефона и передаёт менеджеру готовую заявку.</p>
-      <p class="tag">Бесплатно 7 дней · карта не нужна · разработчик не нужен</p>
+      <div class="trial"><b>7 дней бесплатно</b><span>Попробуйте и посмотрите, скольких клиентов вы теряли</span></div>
+      <p class="muted" style="font-size:14px;margin-top:-8px">Карта не нужна · разработчик не нужен</p>
     </div>
     <div class="toasts">
       <div class="toast rv"><b>Новая заявка · 21:47</b><span>Имя и телефон — прямо в диалоге, без формы</span></div>
@@ -346,19 +350,33 @@ ul.plain{margin:0;padding-left:20px;line-height:1.75;color:#CBD7E1}
   </div>
 </section>
 
-<section class="band" style="background:radial-gradient(60% 70% at 85% 30%,rgba(143,208,168,.13),transparent 70%),radial-gradient(50% 60% at 10% 90%,rgba(130,180,230,.08),transparent 70%)">
+<section class="band" style="background:radial-gradient(60% 70% at 85% 30%,rgba(143,208,168,.16),transparent 70%),radial-gradient(50% 60% at 10% 90%,rgba(130,180,230,.08),transparent 70%)">
   <div class="wrap">
     <div class="head rv">
-      <p class="eyebrow">Запуск</p>
-      <h2>Проверить ничем не рискуя</h2>
+      <p class="eyebrow" style="color:var(--accent)">Тест-драйв</p>
+      <h2>7 дней бесплатно.<br>Посмотрите, что вы теряете</h2>
+      <p class="lede">Ставим консультанта на ваш сайт. Через неделю вы увидите в цифрах, сколько клиентов уходило без ответа — и скольких бот уже поймал.</p>
     </div>
-    <div class="grid c4">
-      <div class="rule rv"><p class="eyebrow">5 минут</p><h3 style="margin:8px 0">Адрес сайта</h3><p class="muted">Вы даёте домен и пару слов о бизнесе.</p></div>
-      <div class="rule rv"><p class="eyebrow">Минуты</p><h3 style="margin:8px 0">Сканирование</h3><p class="muted">AI изучает сайт, услуги и цены и собирает консультанта.</p></div>
-      <div class="rule rv"><p class="eyebrow">День</p><h3 style="margin:8px 0">Настройка</h3><p class="muted">Ставим виджет, подключаем уведомления, проверяем ответы.</p></div>
-      <div class="rule rv" style="border-top-color:#fff"><p class="eyebrow" style="color:#fff">7 дней</p><h3 style="margin:8px 0">Бесплатный тест</h3><p class="muted">10 заявок и почти все функции. Карта не нужна.</p></div>
+    <div class="grid c2" style="align-items:start">
+      <div class="card good rv">
+        <p class="eyebrow" style="color:var(--accent);margin-bottom:14px">Через 7 дней у вас на руках</p>
+        <ul class="plain">
+          <li>Сколько людей писали ночью и в выходные — когда вам некому было ответить</li>
+          <li>Имена и телефоны тех, кто раньше просто ушёл бы с сайта</li>
+          <li>О чём на самом деле спрашивают клиенты — полная история диалогов</li>
+          <li>Понятный ответ, окупится ли бот именно у вас</li>
+        </ul>
+      </div>
+      <div class="card rv" style="background:transparent">
+        <p class="eyebrow" style="margin-bottom:14px">Как проходит тест</p>
+        <div class="kv"><span>5 минут</span><span>Вы даёте адрес сайта и пару слов о бизнесе</span></div>
+        <div class="kv"><span>Минуты</span><span>AI изучает сайт, услуги и цены</span></div>
+        <div class="kv"><span>1 день</span><span>Ставим виджет, наполняем и проверяем ответы</span></div>
+        <div class="kv"><span>7 дней</span><span>Бот работает, вы смотрите заявки</span></div>
+      </div>
     </div>
-    <p class="lede rv" style="margin-top:36px;max-width:70ch">Настройку, обучение агента и сопровождение берём на себя. Не подойдёт — отключаете в один клик, без счетов и обязательств.</p>
+    <div class="rule rv" style="margin-top:32px;border-top-color:var(--accent);display:flex;gap:18px;align-items:baseline;flex-wrap:wrap"><span class="num" style="font-size:clamp(30px,3.4vw,42px);color:var(--accent)">↗</span><p class="lede" style="flex:1;min-width:240px;max-width:62ch;font-size:clamp(17px,1.9vw,22px)">И это результат без доработок. После подключения мы дообучаем бота на реальных диалогах ваших клиентов — он отвечает точнее и собирает ещё больше заявок.</p></div>
+    <p class="tag rv" style="margin-top:24px">Без оплаты и без карты · до 10 заявок и почти все функции · не подойдёт — просто отключаем</p>
   </div>
 </section>
 
